@@ -19,21 +19,33 @@
           <a class="nav-link active" aria-current="page" href="#">Mieszkania</a>
         </li>
       </ul>
-      <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
-        <input
-          name="username"
-          [(ngModel)]="model.username"
-          class="form-control me-2"
-          type="text"
-          placeholder="Username">
-        <input
-          name="password"
-          [(ngModel)]="model.password"
-          class="form-control me-2"
-          type="password"
-          placeholder="Password">
-        <button class="btn btn-outline-success" type="submit">Login</button>
-      </form>
+
+      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
+        <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome User</a>
+        <div class="dropdown-menu" *dropdownMenu>
+          <a class="dropdown-item">Edit profile</a>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
+        </div>
+      </div>
+
+      <div *ngIf="!(accountService.currentUser$ | async)">
+        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+          <input
+            name="email"
+            [(ngModel)]="model.email"
+            class="form-control me-2"
+            type="text"
+            placeholder="Email">
+          <input
+            name="password"
+            [(ngModel)]="model.password"
+            class="form-control me-2"
+            type="password"
+            placeholder="Password">
+          <button class="btn btn-outline-success" type="submit">Login</button>
+        </form>
+      </div>
+
     </div>
   </div>
 </nav>

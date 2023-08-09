@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AccountService } from './services/account.service';
+import { User } from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -12,14 +14,26 @@ export class AppComponent implements OnInit {
 
   estates: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private accountService: AccountService) {}
 
   ngOnInit(): void {
+    this.getUsers();
+    this.setCurrentUser();
+  }
+
+  getUsers(){
     this.http.get('http://localhost:5186/api/estates/GetEstates').subscribe({
       next: response => this.estates = response,
       error: error => console.log(error),
-      complete: () => console.log('Request has completetd')
+      complete: () => console.log('Request has completed')
     });
+  }
+
+  setCurrentUser() {
+    const userString = localStorage.getItem('user');
+    if(!userString) return;
+    const user: User = JSON.parse(userString);
+    this.accountService.setCurrentUser(user);
   }
 
 }

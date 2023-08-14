@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
-  estates: any;
+  users: any;
 
   constructor(private http: HttpClient) {}
 
@@ -21,11 +21,15 @@ export class HomeComponent implements OnInit {
   }
 
   getUsers(){
-    this.http.get('http://localhost:5186/api/estates/GetEstates').subscribe({
-      next: response => this.estates = response,
+    this.http.get('http://localhost:5186/api/admin/GetUsers').subscribe({
+      next: response => this.users = response,
       error: error => console.log(error),
       complete: () => console.log('Request has completed')
     });
+  }
+
+  cancelRegisterMode(event: boolean) {
+    this.registerMode = event;
   }
 
 }

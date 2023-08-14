@@ -8,7 +8,6 @@ import { User } from './models/user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
   title = 'RealEstate.Angular';
 
   constructor(private accountService: AccountService) {}

@@ -23,8 +23,8 @@
         </li>
       </ul>
 
-      <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-        <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome User</a>
+      <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+        <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.email}}</a>
         <div class="dropdown-menu" *dropdownMenu>
           <a class="dropdown-item">Edit profile</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>
@@ -33,7 +33,7 @@
 
       <div *ngIf="!(accountService.currentUser$ | async)">
         <a class="nav-link" routerLink="" routerLinkActive="active"><i class="fa fa-user"></i> Moje konto</a>
-        <!-- <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
+        <form #loginForm="ngForm" class="d-flex" (ngSubmit)="login()" autocomplete="off">
           <input
             name="email"
             [(ngModel)]="model.email"
@@ -47,7 +47,7 @@
             type="password"
             placeholder="Password">
           <button class="btn btn-outline-success" type="submit">Login</button>
-        </form> -->
+        </form>
       </div>
 
     </div>

@@ -17,6 +17,8 @@ import { StatesComponent } from './states/states.component';
 import { GenresComponent } from './genres/genres.component';
 import { TagsComponent } from './tags/tags.component';
 import { UsersComponent } from './users/users.component';
+import { MemberListComponent } from './member-list/member-list.component';
+import { MemberCardComponent } from './member-card/member-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { UsersComponent } from './users/users.component';
     StatesComponent,
     GenresComponent,
     TagsComponent,
-    UsersComponent
+    UsersComponent,
+    MemberListComponent,
+    MemberCardComponent
   ],
   imports: [
     BrowserModule,

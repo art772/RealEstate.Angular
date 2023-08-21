@@ -1,0 +1,14 @@
+<div class="card mb-4" *ngIf="member">
+  <div class="card-img-wrapper">
+    <img src="assets/img/3d-rendering-modern-house.jpg" alt="Member avatar" class="card-img-top">
+  </div>
+  <div class="card-body p-1">
+    <h6 class="card-title text-center mb-1">
+      <i class="fa fa-user me-2"></i>
+      {{member.userName}}
+    </h6>
+    <p class="card-tex text-muted text-center">
+      {{member.firstName}} {{member.lastName}}
+    </p>
+  </div>
+</div>

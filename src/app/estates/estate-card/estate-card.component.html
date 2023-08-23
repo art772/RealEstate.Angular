@@ -1,1 +1,10 @@
-<p>estate-card works!</p>
+<div class="card mb-3" *ngIf="estate">
+  <div class="card-body">
+    <img src="assets/img/3d-rendering-modern-house.jpg" class="card-img" style="margin-bottom: 20px;">
+    <h4 class="card-title">{{estate.name}}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Cena: {{estate.price}} zł</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Powierzchnia: {{estate.estateArea}} m2</h6>
+    <h6 class="card-subtitle mb-2 text-muted">Miejscowość: {{estate.city}}</h6>
+    <a href="#" class="card-link">Sprawdź szczegóły</a>
+  </div>
+</div>

@@ -18,7 +18,11 @@ export class EstateListComponent implements OnInit {
 
   loadEstates() {
     this.estateService.getEsates().subscribe({
-      next: estates => this.estates = estates
+      next: estates => {
+        this.estates = estates,
+        console.log(estates);
+      }
+
     });
   }
 

@@ -1,20 +1,5 @@
-<table class="estate-table">
-  <thead>
-    <th>Id</th>
-    <th>Nazwa użykownika</th>
-    <th>Email</th>
-    <th>Imię</th>
-    <th>Nazwisko</th>
-    <th></th>
-  </thead>
-  <tbody>
-    <tr *ngFor="let estate of estates">
-      <td>Id: {{estate.id}}</td>
-      <td>Nazwa nieruchomości {{estate.name}}</td>
-      <td>Miasto: {{estate.city}}</td>
-      <td>Powierzchnia: {{estate.estateArea}}</td>
-      <td>Cena: {{estate.price}} zł</td>
-      <td>Szczegóły</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-3" *ngFor="let estate of estates">
+    <app-estate-card [estate]="estate"></app-estate-card>
+  </div>
+</div>

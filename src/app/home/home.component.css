@@ -1,0 +1,27 @@
+section {
+  margin-bottom: 80px;
+}
+.container {
+  padding: 0;
+}
+.home-page-slider {
+  margin-top: -28px;
+  height: 400px;
+  text-align: center;
+  background-image: url("src/assets/img/3d-rendering-loft-scandinavian-living-room-with-working-table-bookshelf-V2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.background-layer {
+  width: 100%;
+  height: 400px;
+  background-color: rgba(0,0,0,0.3);
+}
+.home-page-slider-content {
+  padding: 140px;
+}
+.home-page-slider-content h1,
+.home-page-slider-content {
+  color: #ffffff;
+}

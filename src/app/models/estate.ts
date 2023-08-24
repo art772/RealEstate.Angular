@@ -5,4 +5,5 @@ export interface Estate {
   price: number
   estateArea: number
   statusId: number
+  street: string
 }

@@ -1,1 +1,6 @@
-<p>estate-detail works!</p>
+<h1>{{estate?.name}}</h1>
+<div>Cena: {{estate?.price}},00 zł</div>
+<div>Powierzchnia uzytkowa: {{estate?.estateArea}}m2</div>
+<div>Opis: {{estate?.description}}</div>
+<div>ul. {{ estate?.street }} {{ estate?.streetNumber }}{{ estate?.flatNumber ? '/' + estate?.flatNumber + ',' : ',' }}
+  {{ estate?.zipCode }} {{ estate?.city }}, {{ estate?.country }}</div>

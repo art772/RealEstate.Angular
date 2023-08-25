@@ -1,0 +1,17 @@
+.estate-page-header,
+.estate-page-details,
+.estate-page-description,
+.estate-page-additional-information {
+  margin: 30px 0;
+}
+
+.estate-page-details-row {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.estate-page-details-header,
+.estate-page-description-header,
+.estate-page-additional-information-header {
+  margin-bottom: 20px;
+}

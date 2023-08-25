@@ -1,6 +1,58 @@
-<h1>{{estate?.name}}</h1>
-<div>Cena: {{estate?.price}},00 zł</div>
-<div>Powierzchnia uzytkowa: {{estate?.estateArea}}m2</div>
-<div>Opis: {{estate?.description}}</div>
-<div>ul. {{ estate?.street }} {{ estate?.streetNumber }}{{ estate?.flatNumber ? '/' + estate?.flatNumber + ',' : ',' }}
-  {{ estate?.zipCode }} {{ estate?.city }}, {{ estate?.country }}</div>
+<div class="row" *ngIf="estate">
+  <div class="col-8">
+    <img src="./assets/img/3d-rendering-modern-house.jpg" class="card-img-top" alt="Featured photo of house">
+    <div class="estate-page-header">
+      <div class="row">
+        <div class="col-9">
+          <h3>{{estate.name}}</h3>
+          <div><i class="fa fa-map-marker"></i> ul. {{ estate.street }} {{ estate.streetNumber }}{{ estate.flatNumber ? '/' + estate.flatNumber + ',' : ',' }}
+            {{ estate.zipCode }} {{ estate.city }}, {{ estate.country }}</div>
+        </div>
+        <div class="col-3">
+          <h3>{{estate.price}},00 zł</h3>
+        </div>
+      </div>
+    </div>
+    <div class="estate-page-details">
+      <h4 class="estate-page-details-header">Szczegóły ogłoszenia</h4>
+      <div class="row">
+        <div class="col-6">
+          <div class="estate-page-details-row">Powierzchnia {{estate.estateArea}} m2</div>
+          <div class="estate-page-details-row">Pietro: 3</div>
+          <div class="estate-page-details-row">Stan wykończenia: gotowy</div>
+        </div>
+        <div class="col-6">
+          <div class="estate-page-details-row">Rynek: wtórny</div>
+          <div class="estate-page-details-row">Typ ogłoszenia: prywatny</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="estate-page-description">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="estate-page-description-header">Opis:</h4>
+          <div>{{estate.description}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="estate-page-additional-information">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="estate-page-additional-information-header">Informacje dodatkowe:</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-4">
+    <div class="estate-page-contact">
+      <h4>Dane sprzedającego</h4>
+      <p>Imię i nazwisko</p>
+      <p>Adres e-mail</p>
+      <p>Numer telefonu: </p>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 export interface Member {
   id: number
   userName: string
-  email: string
+  userEmail: string
   firstName: string
   lastName: string
-  isBanned: boolean
+  phoneNumber: null
 }

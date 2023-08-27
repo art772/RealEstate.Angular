@@ -21,6 +21,10 @@ import { UsersComponent } from './users/users.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { EstateEditComponent } from './estates/estate-edit/estate-edit.component';
+import { CreateEstateComponent } from './estates/create-estate/create-estate.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,6 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     HomeComponent,
     RegisterComponent,
     EstateListComponent,
-    EstateDetailComponent,
     EstateCardComponent,
     CategoriesComponent,
     StatesComponent,
@@ -37,7 +40,11 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     TagsComponent,
     UsersComponent,
     MemberListComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    EstateEditComponent,
+    CreateEstateComponent,
+    MemberEditComponent,
+    MemberDetailComponent
   ],
   imports: [
     BrowserModule,

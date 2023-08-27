@@ -8,4 +8,8 @@ export interface EstateDetail extends Estate {
   zipCode: string
   country: string
   yearOfConstruction: number
+  marketType: string
+  finishState: string
+  floor: number
+  numberOfRooms: number
 }

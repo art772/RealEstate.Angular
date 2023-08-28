@@ -1,1 +1,59 @@
-<h1 *ngIf="member">{{member.userEmail}}</h1>
+<div *ngIf="member">
+  <div class="row">
+    <div class="col-4">
+      <div>
+        <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika">
+      </div>
+      <br>
+      <p>Nazwa użytkownika: {{member.userName}}</p>
+      <p>Imię i nazwisko: {{member.firstName}} {{member.lastName}}</p>
+      <p>Adres e-mail: {{member.userEmail}}</p>
+      <p>Telefon: {{(member.phoneNumber != null) ? member.phoneNumber : "Brak" }}</p>
+    </div>
+
+    <div class="col-8">
+      <div class="alert alert-info" *ngIf="editForm.dirty">
+        <p>Uwaga! Wszystkie niezapisane zmiany zostaną utracone.</p>
+      </div>
+      <div>
+        <form #editForm="ngForm" (ngSubmit)="updateMember()">
+          <div class="row">
+            <div class="col-6">
+              <p>Imię:
+                <input class="form-control"
+                [(ngModel)]="member.firstName"
+                name="firstName"
+                placeholder="{{member.firstName}}">
+              </p>
+            </div>
+            <div class="col-6">
+              <p>Nazwisko:
+                <input class="form-control"
+                [(ngModel)]="member.lastName"
+                name="lastName"
+                placeholder="{{member.lastName}}">
+              </p>
+            </div>
+            <div class="col-6">
+              <p>Adres e-mail:
+                <input class="form-control"
+                [(ngModel)]="member.userEmail"
+                name="userEmail"
+                placeholder="{{member.userEmail}}">
+              </p>
+            </div>
+            <div class="col-6">
+              <p>Telefon:
+                <input class="form-control"
+                [(ngModel)]="member.phoneNumber"
+                name="phoneNumber"
+                placeholder="{{member.phoneNumber}}">
+              </p>
+            </div>
+            <button type="submit" [disabled]="!editForm.dirty" class="btn btn-success col-12">Zapisz zmiany</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

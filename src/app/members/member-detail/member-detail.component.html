@@ -5,10 +5,22 @@
         <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika">
       </div>
       <br>
-      <p>Nazwa użytkownika: {{member.userName}}</p>
-      <p>Imię i nazwisko: {{member.firstName}} {{member.lastName}}</p>
-      <p>Adres e-mail: {{member.userEmail}}</p>
-      <p>Telefon: {{(member.phoneNumber != null) ? member.phoneNumber : "Brak" }}</p>
+      <p>Nazwa użytkownika:
+        <br>
+        {{member.userName}}
+      </p>
+      <p>Imię i nazwisko:
+        <br>
+        {{member.firstName}} {{member.lastName}}
+      </p>
+      <p>Adres e-mail:
+        <br>
+        {{member.userEmail}}
+      </p>
+      <p>Telefon:
+        <br>
+        {{(member.phoneNumber != null) ? member.phoneNumber : "Brak" }}
+      </p>
     </div>
   </div>
 </div>

@@ -25,6 +25,7 @@ import { EstateEditComponent } from './estates/estate-edit/estate-edit.component
 import { CreateEstateComponent } from './estates/create-estate/create-estate.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
     SharedModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

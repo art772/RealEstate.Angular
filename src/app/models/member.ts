@@ -4,5 +4,5 @@ export interface Member {
   userEmail: string
   firstName: string
   lastName: string
-  phoneNumber: null
+  phoneNumber: string
 }

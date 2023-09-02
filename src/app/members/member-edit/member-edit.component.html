@@ -1,8 +1,11 @@
 <div *ngIf="member">
   <div class="row">
     <div class="col-4">
-      <div>
-        <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika">
+      <div *ngIf="member.photo">
+        <img src="{{member.photo.url}}" alt="awatar użytkownika" width="100%">
+      </div>
+      <div *ngIf="!member.photo">
+        <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika" width="100%">
       </div>
       <br>
       <p>Nazwa użytkownika: {{member.userName}}</p>
@@ -54,6 +57,8 @@
           </div>
         </form>
       </div>
+
+      <app-photo-editor [member]="member"></app-photo-editor>
     </div>
   </div>
 </div>

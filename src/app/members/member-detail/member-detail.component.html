@@ -1,8 +1,11 @@
 <div *ngIf="member">
   <div class="row">
     <div class="col-3">
-      <div>
-        <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika">
+      <div *ngIf="member.photo">
+        <img src="{{member.photo.url}}" alt="awatar użytkownika" width="100%">
+      </div>
+      <div *ngIf="!member.photo">
+        <img src="/assets/img/default-user-avatar.jpg" alt="awatar użytkownika" width="100%">
       </div>
       <br>
       <p>Nazwa użytkownika:
@@ -21,6 +24,11 @@
         <br>
         {{(member.phoneNumber != null) ? member.phoneNumber : "Brak" }}
       </p>
+    </div>
+
+    <div class="col-9">
+      Moje nieruchomości <br>
+      Polubione nieruchomości
     </div>
   </div>
 </div>

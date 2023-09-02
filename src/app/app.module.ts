@@ -26,6 +26,7 @@ import { CreateEstateComponent } from './estates/create-estate/create-estate.com
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     EstateEditComponent,
     CreateEstateComponent,
     MemberEditComponent,
-    MemberDetailComponent
+    MemberDetailComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 <div *ngIf="member">
   <div class="row">
-    <div class="col-4">
+    <div class="col-3">
       <div *ngIf="member.photo">
         <img src="{{member.photo.url}}" alt="awatar użytkownika" width="100%">
       </div>
@@ -14,7 +14,7 @@
       <p>Telefon: {{(member.phoneNumber != null) ? member.phoneNumber : "Brak" }}</p>
     </div>
 
-    <div class="col-8">
+    <div class="col-9">
       <div class="alert alert-info" *ngIf="editForm.dirty">
         <p>Uwaga! Wszystkie niezapisane zmiany zostaną utracone.</p>
       </div>

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FileUploader } from 'ng2-file-upload';
 import { take } from 'rxjs';
 import { AccountService } from 'src/app/_services/account.service';
+import { MembersService } from 'src/app/_services/members.service';
 import { Member } from 'src/app/models/member';
 import { User } from 'src/app/models/user';
 import { environment } from 'src/environments/environment';
@@ -18,7 +19,7 @@ export class PhotoEditorComponent implements OnInit {
   baseUrl = environment.apiUrl;
   user: User | undefined;
 
-  constructor(private accountService: AccountService) {
+  constructor(private accountService: AccountService, private memberService: MembersService) {
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next: user => {
         if (user) this.user = user
@@ -60,5 +61,16 @@ export class PhotoEditorComponent implements OnInit {
         }
       }
     }
+  }
+
+  deletePhoto(photoId: number) {
+    this.memberService.deletePhoto(photoId).subscribe({
+      next: () => {
+        if (this.member) {
+          console.log(this.member.photo);
+          this.member.photo = this.member.photo;
+        }
+      }
+    })
   }
 }

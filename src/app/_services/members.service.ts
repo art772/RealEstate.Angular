@@ -33,4 +33,8 @@ export class MembersService {
     return this.http.patch(this.baseUrl + 'users/EditUserData/' + id, member);
   }
 
+  deletePhoto(photoId: number) {
+    return this.http.delete(this.baseUrl + 'users/DeletePhoto/' + photoId);
+  }
+
 }

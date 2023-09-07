@@ -6,11 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavComponent } from './nav/nav.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { EstateListComponent } from './estates/estate-list/estate-list.component';
-import { EstateDetailComponent } from './estates/estate-detail/estate-detail.component';
 import { EstateCardComponent } from './estates/estate-card/estate-card.component';
 import { SharedModule } from './_modules/shared.module';
 import { CategoriesComponent } from './categories/categories.component';
@@ -55,6 +54,7 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule
   ],
   providers: [

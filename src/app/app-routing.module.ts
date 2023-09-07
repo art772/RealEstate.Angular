@@ -10,6 +10,7 @@ import { CreateEstateComponent } from './estates/create-estate/create-estate.com
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { preventUnsaveChangesGuard } from './_guards/prevent-unsave-changes.guard';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,9 +18,10 @@ const routes: Routes = [
   {path: 'estates/:id', component: EstateDetailComponent},
   {path: 'estates/create', component: CreateEstateComponent},
   {path: 'estates/edit/:id', component: EstateEditComponent},
-  {path: 'members' , component: MemberListComponent},
+  {path: 'members', component: MemberListComponent},
   {path: 'members/:id' , component: MemberDetailComponent},
   {path: 'members/edit/:id' , component: MemberEditComponent, canDeactivate: [preventUnsaveChangesGuard]},
+  {path: 'register', component: RegisterComponent},
   {path: '**', component: HomeComponent, },
 ];
 

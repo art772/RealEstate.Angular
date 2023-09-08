@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -10,37 +11,35 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   @Output() cancelRegister = new EventEmitter();
-  model: any = {}
   registerForm: FormGroup = new FormGroup({});
+  validationErrors: string[] | undefined;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService) {}
+  constructor(private accountService: AccountService, private toastr: ToastrService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.initializeForm();
   }
 
   initializeForm() {
-    this.registerForm = new FormGroup({
-      userName: new FormControl(),
-      email: new FormControl(),
-      password: new FormControl(),
-      firstName: new FormControl(),
-      lastName: new FormControl()
+    this.registerForm = this.formBuilder.group({
+      userName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(20)]],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required]
     })
   }
 
   register() {
-    console.log(this.registerForm?.value);
-    // this.accountService.register(this.model).subscribe({
-    //   next: response => {
-    //     console.log(response);
-    //     this.cancel();
-    //   },
-    //   error: error => {
-    //     this.toastr.error(error.error);
-    //     console.log(error);
-    //   }
-    // })
+    this.accountService.register(this.registerForm.value).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/')
+      },
+      error: error => {
+        this.validationErrors = error,
+        console.log(this.validationErrors)
+      }
+    })
   }
 
   cancel() {

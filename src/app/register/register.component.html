@@ -1,41 +1,41 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
 	<h2 class="text-center text-primary">Sign up</h2>
   <hr>
-  <div class="mb-3">
-    <input type="userName"
-      class="form-control"
-      formControlName="userName"
-      placeholder="User Name"
-    >
+  <app-text-input
+    [formControl]="$any(registerForm.controls['userName'])"
+    [label]="'User name'">
+  </app-text-input>
+
+  <app-text-input
+    [formControl]="$any(registerForm.controls['email'])"
+    [label]="'Email'"
+    [type]="'email'">
+  </app-text-input>
+
+  <app-text-input
+    [formControl]="$any(registerForm.controls['password'])"
+    [label]="'Password'"
+    [type]="'password'">
+  </app-text-input>
+
+  <app-text-input
+    [formControl]="$any(registerForm.controls['firstName'])"
+    [label]="'First name'">
+  </app-text-input>
+
+    <app-text-input
+    [formControl]="$any(registerForm.controls['lastName'])"
+    [label]="'Last name'">
+  </app-text-input>
+
+  <div class="row" *ngIf="validationErrors">
+    <ul class="text-danger">
+      <li *ngFor="let error of validationErrors">
+        {{error}}
+      </li>
+    </ul>
   </div>
-  <div class="mb-3">
-    <input type="text"
-      class="form-control"
-      formControlName="email"
-      placeholder="Email"
-    >
-  </div>
-  <div class="mb-3">
-    <input type="password"
-      class="form-control"
-      formControlName="password"
-      placeholder="Password"
-    >
-  </div>
-  <div class="mb-3">
-    <input type="firstName"
-      class="form-control"
-      formControlName="firstName"
-      placeholder="First Name"
-    >
-  </div>
-  <div class="mb-3">
-    <input type="lastName"
-      class="form-control"
-      formControlName="lastName"
-      placeholder="Last Name"
-    >
-  </div>
+
   <div class="text-center">
     <button class="btn btn-success me-2" type="submit">Register</button>
     <button class="btn btn-default" type="button" (click)="cancel()">Cancel</button>

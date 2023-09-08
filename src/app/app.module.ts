@@ -26,6 +26,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     CreateEstateComponent,
     MemberEditComponent,
     MemberDetailComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+    TextInputComponent
   ],
   imports: [
     BrowserModule,

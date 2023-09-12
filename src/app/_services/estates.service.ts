@@ -21,13 +21,13 @@ export class EstatesService {
     return this.http.get<EstateDetail>(this.baseUrl + 'estates/GetDetails/' + id);
   }
 
-  // creteEstate(model: EstateDetail) {
-  //   return this.http.post<EstateDetail>(this.baseUrl + 'estates​/CreateEstate', model). pipe(
-  //     map((response: EstateDetail) => {
-  //       console.log(response);
-  //       return response;
-  //     })
-  //   );
-  // }
+  createEstate(model: EstateDetail) {
+    return this.http.post<EstateDetail>(this.baseUrl + 'estates/CreateEstate', model). pipe(
+      map((response: EstateDetail) => {
+        console.log(response);
+        return response;
+      })
+    );
+  }
 
 }

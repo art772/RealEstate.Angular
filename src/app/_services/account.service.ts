@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map } from 'rxjs';
+import { BehaviorSubject, catchError, map, throwError } from 'rxjs';
 import { User } from '../models/user';
 import { environment } from 'src/environments/environment';
 
@@ -34,6 +34,19 @@ export class AccountService {
           this.currentUserSource.next(user);
         }
         return user;
+      }),
+      catchError((errorResponse: HttpErrorResponse) => {
+        if (errorResponse.status === 400) {
+          // Jeśli status odpowiedzi to 400 (Bad Request), to zakładamy, że są błędy walidacji
+          const validationErrors = errorResponse.error;
+          if (typeof validationErrors === 'object') {
+            // Przekształć obiekt na tablicę stringów
+            const errorsArray = Object.values(validationErrors);
+            return throwError(() => errorsArray);
+          }
+        }
+        // Jeśli status to coś innego lub błąd nie jest w oczekiwanym formacie, zwróć ogólny komunikat błędu
+        return throwError(() => (['Wystąpił błąd podczas rejestracji.']));
       })
     )
   }

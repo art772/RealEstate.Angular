@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AccountService } from '../_services/account.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -31,13 +31,14 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.registerForm.markAllAsTouched();
+
     this.accountService.register(this.registerForm.value).subscribe({
       next: () => {
         this.router.navigateByUrl('/')
       },
       error: error => {
-        this.validationErrors = error,
-        console.log(this.validationErrors)
+        this.validationErrors = error
       }
     })
   }

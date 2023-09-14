@@ -104,20 +104,16 @@
     [label]="'Liczba pokoi'">
   </app-text-input>
 
-  <br>
-
   <button type="submit" class="btn btn-success">Dodaj nieruchomość</button>
-</form>
 
-<div class="row" *ngIf="validationErrors">
-  dupa
+  <br>
+  <div class="row" *ngIf="validationErrors">
     <ul class="text-danger">
       <li *ngFor="let error of validationErrors">
         {{error}}
       </li>
     </ul>
   </div>
+  <br>
 
-<br>
-
-Dane z formularza: {{createForm.value | json}}
+</form>

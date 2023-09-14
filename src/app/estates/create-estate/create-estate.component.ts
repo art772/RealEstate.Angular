@@ -63,19 +63,14 @@ export class CreateEstateComponent implements OnInit {
   }
 
   createEstate() {
-    if (this.createForm.invalid) {
-      console.log("Formularz jest nieprawidłowy.");
-      return;
-    }
     this.estateService.createEstate(this.createForm.value).subscribe({
       next: () => {
         this.router.navigateByUrl("/");
       },
       error: (error) => {
-        console.log(error);
+        this.validationErrors = error
       }
     })
-    console.log(this.createForm.value);
   }
 
 }

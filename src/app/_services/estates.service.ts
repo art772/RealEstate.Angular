@@ -21,11 +21,15 @@ export class EstatesService {
     return this.http.get<EstateDetail>(this.baseUrl + 'estates/GetDetails/' + id);
   }
 
-  createEstate(model: EstateDetail) {
+  createEstate(model: any) {
     return this.http.post<EstateDetail>(this.baseUrl + 'estates/CreateEstate', model). pipe(
-      map((response: EstateDetail) => {
-        return response;
-      }),
+      map(estate => {
+        return estate;
+      })
+      // map((response: EstateDetail) => {
+      //   return response;
+      // })
+      ,
       catchError((errorResponse: HttpErrorResponse) => {
         if (errorResponse.status === 400) {
           // Jeśli status odpowiedzi to 400 (Bad Request), to zakładamy, że są błędy walidacji
@@ -40,6 +44,14 @@ export class EstatesService {
         return throwError(() => (['Wystąpił błąd podczas rejestracji.']));
       })
     );
+  }
+
+  getEstateByCategory(id: number) {
+    return this.http.get<Estate[]>(this.baseUrl + 'estates/GetEstatesByCategory/' + id);
+  }
+
+  getEstateByGenre(id: number) {
+    return this.http.get<Estate[]>(this.baseUrl + 'estates/GetEstatesByGenre/' + id);
   }
 
 }

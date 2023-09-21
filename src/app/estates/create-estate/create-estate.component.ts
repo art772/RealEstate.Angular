@@ -67,8 +67,8 @@ export class CreateEstateComponent implements OnInit {
       next: () => {
         this.router.navigateByUrl("/");
       },
-      error: (error) => {
-        this.validationErrors = error
+      error: error => {
+        this.validationErrors = error;
       }
     })
   }

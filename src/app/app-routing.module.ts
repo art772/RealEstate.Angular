@@ -17,6 +17,8 @@ const routes: Routes = [
   {path: 'estates', component: EstateListComponent, canActivate: [authGuard]},
   {path: 'estates/create', component: CreateEstateComponent},
   {path: 'estates/:id', component: EstateDetailComponent},
+  {path: 'estates/category/:id', component: EstateListComponent},
+  {path: 'estates/genre/:id', component: EstateListComponent},
   {path: 'estates/edit/:id', component: EstateEditComponent},
   {path: 'members', component: MemberListComponent},
   {path: 'members/:id' , component: MemberDetailComponent},

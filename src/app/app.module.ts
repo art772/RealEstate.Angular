@@ -27,6 +27,8 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { EstateCategoryComponent } from './estates/estate-category/estate-category.component';
+import { EstateGenreComponent } from './estates/estate-genre/estate-genre.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { TextInputComponent } from './_forms/text-input/text-input.component';
     MemberEditComponent,
     MemberDetailComponent,
     PhotoEditorComponent,
-    TextInputComponent
+    TextInputComponent,
+    EstateCategoryComponent,
+    EstateGenreComponent
   ],
   imports: [
     BrowserModule,

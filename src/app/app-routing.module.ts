@@ -11,14 +11,16 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { preventUnsaveChangesGuard } from './_guards/prevent-unsave-changes.guard';
 import { RegisterComponent } from './register/register.component';
+import { EstateCategoryComponent } from './estates/estate-category/estate-category.component';
+import { EstateGenreComponent } from './estates/estate-genre/estate-genre.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'estates', component: EstateListComponent, canActivate: [authGuard]},
   {path: 'estates/create', component: CreateEstateComponent},
-  {path: 'estates/:id', component: EstateDetailComponent},
-  {path: 'estates/category/:id', component: EstateListComponent},
-  {path: 'estates/genre/:id', component: EstateListComponent},
+  {path: 'estate/:id', component: EstateDetailComponent},
+  {path: 'estates/category/:id', component: EstateCategoryComponent},
+  {path: 'estates/genre/:id', component: EstateGenreComponent},
   {path: 'estates/edit/:id', component: EstateEditComponent},
   {path: 'members', component: MemberListComponent},
   {path: 'members/:id' , component: MemberDetailComponent},

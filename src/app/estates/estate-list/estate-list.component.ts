@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { EstatesService } from 'src/app/_services/estates.service';
 import { Estate } from 'src/app/models/estate';
 
@@ -9,14 +10,18 @@ import { Estate } from 'src/app/models/estate';
 })
 export class EstateListComponent implements OnInit {
   estates: Estate[] = [];
+  estatesForSell: Estate[] = [];
+  estatesForRent: Estate[] = [];
 
-  constructor(private estateService: EstatesService) { }
+  constructor(private estateService: EstatesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.loadEstates();
+    this.loadAllEstates();
+    this.loadEstatesForSell();
+    this.loadEstatesForRent();
   }
 
-  loadEstates() {
+  loadAllEstates() {
     this.estateService.getEsates().subscribe({
       next: estates => {
         this.estates = estates
@@ -24,4 +29,19 @@ export class EstateListComponent implements OnInit {
     });
   }
 
+  loadEstatesForSell() {
+    this.estateService.getEstateByCategory(1).subscribe({
+      next: estatesForSell => {
+        this.estatesForSell = estatesForSell
+      }
+    });
+  }
+
+  loadEstatesForRent() {
+    this.estateService.getEstateByCategory(2).subscribe({
+      next: estatesForRent => {
+        this.estatesForRent = estatesForRent
+      }
+    });
+  }
 }

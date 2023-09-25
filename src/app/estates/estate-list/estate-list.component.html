@@ -3,3 +3,19 @@
     <app-estate-card [estate]="estate"></app-estate-card>
   </div>
 </div>
+
+<h3 style="text-align: center; margin-bottom: 40px;">Nieruchomości na sprzedaż</h3>
+
+<div class="row">
+  <div class="col-3" *ngFor="let estate of estatesForSell">
+    <app-estate-card [estate]="estate"></app-estate-card>
+  </div>
+</div>
+
+<h3 style="text-align: center; margin-bottom: 40px;">NIeruchomości na wynajem</h3>
+
+<div class="row">
+  <div class="col-3" *ngFor="let estate of estatesForRent">
+    <app-estate-card [estate]="estate"></app-estate-card>
+  </div>
+</div>

@@ -54,4 +54,8 @@ export class EstatesService {
     return this.http.get<Estate[]>(this.baseUrl + 'estates/GetEstatesByGenre/' + id);
   }
 
+  updateEstate() {}
+
+  deleteEstate() {}
+
 }

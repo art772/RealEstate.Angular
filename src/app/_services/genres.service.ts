@@ -14,4 +14,12 @@ export class GenresService {
   getGenres() {
     return this.http.get<Genre[]>(this.baseUrl + 'genres/GetGenres');
   }
+
+  createGenres() {}
+
+  deleteGenres() {}
+
+  updateGenres() {}
+
+  restoreGenres() {}
 }

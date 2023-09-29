@@ -14,4 +14,14 @@ export class StatesService {
   getStates() {
     return this.http.get<State[]>(this.baseUrl + 'states/GetStates');
   }
+
+  createStates() {}
+
+  getState() {}
+
+  deleteState() {}
+
+  updateState() {}
+
+  restoreState() {}
 }
